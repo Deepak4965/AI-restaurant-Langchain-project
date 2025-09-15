@@ -66,7 +66,7 @@ app.post("/api/chat", async (req, res) => {
     try {
         const response = await executor.invoke({ input: userInput })
         console.log("Agent full Response:", response);
-        const data = response.intermediateSteps[0].observation
+        const data = response.intermediateSteps[0]
 
         if (response.output && response.output != "Agent stopped due to max iterations. ") {
             return res.json({ output: response.output })
